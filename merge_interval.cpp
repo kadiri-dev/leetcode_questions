@@ -4,7 +4,7 @@ using namespace std;
  
  
 int** findCommon(int **arr1,int **arr2,int n1, int n2, int &ret_size){
-    int **arr3 = new int* [n1+n2];
+    int **arr3 = new int* [n1*n2];
     for(int i=0;i<n1*n2;i++){
         arr3[i] = new int[2];
     }
@@ -48,6 +48,22 @@ int** findCommon(int **arr1,int **arr2,int n1, int n2, int &ret_size){
     return arr3;
 }
  
+
+ void deleteMemory(int** arr1,int** arr2,int** arr3,int n1,int n2 ){
+
+     for(int i=0;i<n1*n2;i++){
+        delete [] arr3[i];
+    }
+    delete [] arr3;
+    for(int i=0;i<n1;i++){
+        delete [] arr1[i];
+    }
+    delete [] arr1;
+    for(int i=0;i<n2;i++){
+        delete [] arr2[i];
+    }
+    delete [] arr2;
+ }
  
 int main(){
     int n1,n2;
@@ -75,5 +91,7 @@ int main(){
     for(int i=0;i<size;i++){
         cout<<arr3[i][0]<<" "<<arr3[i][1]<<endl;
     }
+
+    deleteMemory(arr1,arr2,arr3,n1,n2);
     return 0;
 }
