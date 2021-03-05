@@ -5,7 +5,7 @@ Output: 2
 */
 
 #include <iostream>
-#include <vector> 
+#include <map> 
 #include <algorithm>
 using namespace std;
 
@@ -13,13 +13,13 @@ using namespace std;
 
 int findMissingNumber(int *arr,int n){
 
-    vector<int> vec;
+    map<int,int> vec;
     for(int i=0;i<n;i++){
-        vec.push_back(arr[i]);
+        vec.insert(pair<int,int>(arr[i],1));
     }
     for(int i=0;i<=n;i++){
-        if(find(vec.begin(),vec.end(),i) == vec.end()){
-            return i;
+        if(!vec[i]){
+        	return i;
         }
     }
     return 0;
