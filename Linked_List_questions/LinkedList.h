@@ -8,6 +8,7 @@ class ListNode{
 };
 
 class convertFromArraytoLinkedList{
+    public:
       ListNode* createNode(int val);
       ListNode* convert(int* arr,int n);
 };

@@ -25,7 +25,8 @@ public:
 
 int main(){
     Solution* sol = new Solution();
-    ListNode* head;
+    ListNode* head;    
+    
     sol->hasCycle(head);
     return 0;
 }

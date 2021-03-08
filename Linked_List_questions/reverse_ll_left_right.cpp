@@ -1,13 +1,6 @@
 #include <iostream>
-using namespace std;
-
- struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode() : val(0), next(nullptr) {}
-     ListNode(int x) : val(x), next(nullptr) {}
-     ListNode(int x, ListNode *next) : val(x), next(next) {}
- };
+#include "LinkedList.h"
+using namespace std; 
 
 class Solution {
 public:
@@ -42,19 +35,10 @@ public:
 };
 
 int main(){
-    ListNode* l1 = new ListNode(1);
-    ListNode* l2 = new ListNode(2);
-    ListNode* l3 = new ListNode(3);
-    ListNode* l4 = new ListNode(4);
-    ListNode* l5 = new ListNode(5);
-    ListNode* l6 = new ListNode(6);
-    l1->next=l2;
-    l2->next=l3;
-    l2->next=l3;
-    l3->next=l4;
-    l4->next=l5;
-    l5->next=l6;
+    int arr[6] = {1,2,3,4,5,6};
     Solution* sol = new Solution();
+    convertFromArraytoLinkedList* con = new convertFromArraytoLinkedList();
+    ListNode* l1 = con->convert(arr,6);
     ListNode * out = sol->reverseBetween(l1,2,4);
     ListNode* ptr=out;
     while(ptr != nullptr){
