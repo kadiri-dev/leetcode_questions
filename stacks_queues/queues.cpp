@@ -1,12 +1,13 @@
 #include "queues.h"
+#define ERROR_STRING 1111
 
-queue::queue(int n){
+queue::queue(int n){    
     arr = new int[n];
     maxSize=n;
 }
 
 void queue::insert(int ele){
-    if(rear < maxSize - 1){
+    if(rear < maxSize){
         arr[rear++]=ele;
     }
     else{
@@ -15,18 +16,32 @@ void queue::insert(int ele){
 }
 
 int queue::pop(){
-    if(front != 0){
-        cout<<arr[front++]<<endl;
+    if(front != rear){
+        return arr[front++];
     }
-    else{
-        cout<<"Queue empty"<<endl;
-    }
+    
+    cout<<"Queue empty"<<endl;    
+    return ERROR_STRING;
+    
 }
 
 void queue::traverse(){
     for(int i=front;i<=rear;i++){
         cout<<arr[i]<<endl;
     }
+}
+
+int queue::size(){    
+    return rear-front;
+}
+
+void queue::empty(){    
+    front=0;
+    rear=0;
+}
+
+int queue::top(){
+    return arr[rear];
 }
 
 queue::~queue(){

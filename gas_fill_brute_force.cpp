@@ -12,7 +12,7 @@ public:
             int val=0;                
             while(first || it != i ){                
                 first=false;
-                val+=gas[i]-cost[i];                
+                val+=gas[i]-cost[i];                  
                 cout<<"In neg it: "<<it<<"i: "<<i<<"val: "<<val<<endl;
                 i++;
                 if(i==gas.size())i=0;
