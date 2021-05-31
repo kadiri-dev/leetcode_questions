@@ -1,26 +1,7 @@
 #include <iostream>
 #define INT_MAX 2147483647
+#include "array.h"
 using namespace std;
-
-template <int N>
-class Array{
-    int *arr;
-    public:
-        Array(){
-            arr = new int[N];
-        }
-
-        int* getArray(){
-            return arr;
-        }
-
-        ~Array(){
-            cout<<"Destructor called"<<endl;
-            delete []arr;
-        }
-};
-
-
 
 void SelectionSort(int *arr,int N){
     int least=0;
